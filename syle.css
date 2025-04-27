@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Harry Potter', sans-serif;
-    background-color: black;
+
 }
 
 .navbar {
@@ -16,7 +16,8 @@ body {
 
 }
 
-.nav-left, .nav-right {
+.nav-left,
+.nav-right {
 
     display: flex;
     align-items: center;
@@ -37,7 +38,8 @@ body {
     cursor: pointer;
 }
 
-.nav-button-login, .nav-button-cadastro {
+.nav-button-login,
+.nav-button-cadastro {
     color: #fff;
     text-decoration: none;
     padding: 45px 90px;
@@ -64,5 +66,47 @@ body {
     background-color: #3949ab;
 }
 
+.container {
+    width: 100%;
+    height: 100vh;
+}
 
+.container1 {
+    background-image: url('./imgs/dark-blue-cloudy.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 85%;
+}
 
+.container1 h1{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 99;
+    color: #ffd700;
+    font-size: 100px;
+}
+
+.cloud {
+    overflow: hidden;
+}
+
+.cloud img{
+    animation: cld calc(8s * var(--i)) linear infinite;
+    opacity: .6;
+    max-width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+@keyframes cld{
+   0% {
+    transform: translateX(-100%);
+   }
+   100%{
+    transform: translateX(100%);
+}
+}
