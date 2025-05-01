@@ -103,17 +103,18 @@ body {
 
 .cloud {
     overflow: hidden;
+    pointer-events: none;
 }
 
 .cloud img {
-    animation: cld calc(8s * var(--i)) linear infinite;
+    animation: passarNuvem calc(8s * var(--i)) linear infinite;
     opacity: .6;
     max-width: 100%;
     position: absolute;
     bottom: 0px;
 }
 
-@keyframes cld {
+@keyframes passarNuvem {
     0% {
         transform: translateX(-100%);
     }
@@ -123,25 +124,17 @@ body {
     }
 }
 
-.container2 {
-    background-color: #02083e;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100vh;
-    position: relative;
-    padding-left: 50px;
-}
-
 .quiz-inicial {
-    background-image: url('./imgs/castelobruxo.png');
+    background-image: url('./imgs/trem-azul.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
     display: flex;
     align-items: flex-end;
     padding: 60px;
+    position: relative;
 }
+
 
 .quiz-content {
     display: flex;
@@ -195,14 +188,12 @@ body {
     position: relative;
 }
 
-.homepage-box {
+.homepage-h2 {
     color: #ffd700;
     font-size: 20px;
     width: 400px;
     height: 460px;
     padding: 30px;
-    border: 2px solid #fff;
-    border-radius: 20px;
 }
 
 .homepage-button {
@@ -211,10 +202,9 @@ body {
     text-decoration: none;
     color: #fff;
     padding: 20px 40px;
-    border-radius: 25px;
-    border: 2px solid #fff;
     background-color: #1a237e;
     font-size: 30px;
+    border-radius: 10px;
     transition: background-color 0.3s;
     text-align: center;
 }
