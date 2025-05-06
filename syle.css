@@ -1,23 +1,11 @@
-html,
-body {
-    overflow-x: hidden;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Harry Potter', sans-serif;
-
-}
-
-.navbar {
+header .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
     list-style: none;
     background-color: #02083e;
     padding: 0 60px;
-    height: 100px;
+    width: 215vh;
 
 }
 
@@ -71,68 +59,83 @@ body {
     background-color: #3949ab;
 }
 
-.container {
-    width: 100%;
-    height: 100vh;
+
+html,
+body {
+    overflow-x: hidden;
 }
 
-.container1 {
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Harry Potter', sans-serif;
     background-image: url('./imgs/dark-blue-cloudy.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
-    position: relative;
-}
+    /* position: relative; */
 
-#welcome-text {
-    cursor: pointer;
-}
+    .container {
+        width: 100%;
+        height: 100vh;
 
-.container1 h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-    color: #ffd700;
-    font-size: 40px;
-}
+        .container1 h1 {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 99;
+            color: #ffd700;
+            font-size: 40px;
+        }
 
-.cloud {
-    overflow: hidden;
-    pointer-events: none;
-}
+        #welcome-text {
+            cursor: pointer;
+        }
 
-.cloud img {
-    animation: passarNuvem calc(8s * var(--i)) linear infinite;
-    opacity: .6;
-    max-width: 100%;
-    position: absolute;
-    bottom: 0px;
-}
+        .cloud {
+            overflow: hidden;
+            pointer-events: none;
+        }
 
-@keyframes passarNuvem {
-    0% {
-        transform: translateX(-100%);
-    }
+        .cloud img {
+            animation: passarNuvem calc(8s * var(--i)) linear infinite;
+            opacity: .6;
+            max-width: 100%;
+            position: absolute;
+            bottom: 0px;
+        }
 
-    100% {
-        transform: translateX(100%);
+        @keyframes passarNuvem {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
     }
 }
 
 .quiz-inicial {
-    background-image: url('./imgs/trem-azul.jpg');
+    background-color: rgba(0, 0, 255, 0.472);
     background-size: cover;
     background-position: center;
-    height: 100vh;
     display: flex;
-    align-items: flex-end;
+    width: 80%;
+    align-self: center;
     padding: 60px;
-    position: relative;
+    margin-top: 200px;
+    border-radius: 15px;
+    /* position: relative; */
 }
 
 
@@ -167,14 +170,16 @@ body {
 }
 
 .homepage {
-    background-color: #02083e;
+    background-color: rgba(0, 0, 255, 0.478);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    width: 80%;
+    margin-top: 200px;
     position: relative;
     padding-left: 0 50px;
     gap: 50px;
+    border-radius: 15px;
 }
 
 .homepage-container {
@@ -182,7 +187,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     width: 400px;
     height: 550px;
     position: relative;
@@ -203,8 +208,8 @@ body {
     color: #fff;
     padding: 20px 40px;
     background-color: #1a237e;
-    font-size: 30px;
-    border-radius: 10px;
+    font-size: 20px;
+    border-radius: 5px;
     transition: background-color 0.3s;
     text-align: center;
 }
