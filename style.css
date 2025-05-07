@@ -44,7 +44,7 @@ main {
 .cloud {
     position: absolute;
     left: -200px;
-    opacity: 0.6;
+    opacity: 0.4;
     animation-name: moveClouds;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
