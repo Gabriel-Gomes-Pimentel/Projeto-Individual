@@ -1,3 +1,92 @@
+html,
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-family: 'Harry Potter', sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+}
+
+body {
+
+    background-image: url('./imgs/dark-blue-cloudy.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+}
+
+main {
+    position: relative;
+    z-index: 1;
+}
+
+/* CLOUD */
+
+#clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cloud {
+    position: absolute;
+    left: -200px;
+    opacity: 0.6;
+    animation-name: moveClouds;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    max-width: 1600px;
+    height: auto;
+    transform: scale(8);
+}
+
+/* ANIMAÇÕES */
+
+@keyframes moveClouds {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+.container {
+    width: 100%;
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.container1 {
+    text-align: center;
+}
+
+#welcome-text {
+    z-index: 99;
+    color: #ffd700;
+    font-size: 65px;
+    cursor: pointer;
+}
+
+/* NAVBAR */
 header .navbar {
     display: flex;
     align-items: center;
@@ -6,18 +95,18 @@ header .navbar {
     background-color: #02083e;
     padding: 0 60px;
     width: 215vh;
+    position: relative;
+    z-index: 10;
 
 }
 
 .nav-left,
 .nav-right {
-
     display: flex;
     align-items: center;
 }
 
 .nav-right {
-
     gap: 20px;
 }
 
@@ -59,72 +148,7 @@ header .navbar {
     background-color: #3949ab;
 }
 
-
-html,
-body {
-    overflow-x: hidden;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Harry Potter', sans-serif;
-    background-image: url('./imgs/dark-blue-cloudy.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    /* position: relative; */
-
-    .container {
-        width: 100%;
-        height: 100vh;
-
-        .container1 h1 {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 99;
-            color: #ffd700;
-            font-size: 40px;
-        }
-
-        #welcome-text {
-            cursor: pointer;
-        }
-
-        .cloud {
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .cloud img {
-            animation: passarNuvem calc(8s * var(--i)) linear infinite;
-            opacity: .6;
-            max-width: 100%;
-            position: absolute;
-            bottom: 0px;
-        }
-
-        @keyframes passarNuvem {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-    }
-}
-
+/* QUIZ */
 .quiz-inicial {
     background-color: rgba(0, 0, 255, 0.472);
     background-size: cover;
@@ -135,7 +159,8 @@ body {
     padding: 60px;
     margin-top: 200px;
     border-radius: 15px;
-    /* position: relative; */
+    z-index: 2;
+    position: relative;
 }
 
 
@@ -169,6 +194,7 @@ body {
     cursor: pointer;
 }
 
+/* HOMEPAGE */
 .homepage {
     background-color: rgba(0, 0, 255, 0.478);
     display: flex;
@@ -177,9 +203,10 @@ body {
     width: 80%;
     margin-top: 200px;
     position: relative;
-    padding-left: 0 50px;
+    padding: 50px 50px;
     gap: 50px;
     border-radius: 15px;
+    z-index: 1;
 }
 
 .homepage-container {
@@ -187,7 +214,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    /* background-attachment: fixed; */
     width: 400px;
     height: 550px;
     position: relative;
@@ -217,4 +243,33 @@ body {
 .homepage-button:hover {
     background-color: #3949ab;
     cursor: pointer;
+}
+
+footer {
+    margin-top: 150px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    height: 300px;
+    background-image: url('./imgs/trem-azul.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+footer p {
+    background-color:  rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    padding:10px 20px;
+    margin: 0;
+    font-size: 16px;
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+    height: 300px;
 }
