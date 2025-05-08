@@ -1,29 +1,90 @@
+@font-face {
+    font-family: 'Harry Beast';
+    src: url('./fontes/harryp.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 body {
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
     font-family: 'Harry Potter', sans-serif;
-}
-
-.logo-cadastro {
-    position: absolute;
-    top: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.logo-cadastro {
-    height: 20px;
-}
-
-.container-cadastro {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url(./imgs/background_space.jpg);
+
+    background-image: url('./imgs/background_space.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
 }
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.logo-cadastro {
+    margin-top: 30px;
+}
+
+.logo-cadastro img {
+    height: 100px;
+}
+
+.header-cadastro {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-cadastro h1 {
+    font-family: 'Harry Beast';
+    color: #fff;
+    font-size: 50px;
+}
+
+.container-cadastro {
+    background-color: rgba(0, 0, 255, 0.478);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-top: 200px;
+    padding: 50px 50px;
+    gap: 50px;
+    border-radius: 15px;
+}
+
+/* footer {
+    margin-top: 150px;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    height: 300px;
+    background-image: url('./imgs/horizons_village.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: #ffd700;
+    text-align: center;
+    padding: 10px 20px;
+    margin: 20px;
+    font-size: 18px;
+    width: 100%;
+} */
