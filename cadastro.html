@@ -11,12 +11,18 @@
 <body>
 
     <header>
-        <div class="logo-cadastro">
-            <img src='./imgs/logo.png' alt="Logo">
-        </div>
-
         <div class="header-cadastro">
-            <h1>Cadastre-se</h1>
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <img src='./imgs/logo.png' alt="Logo" class="logo-cadastro">
+
+                </a>
+
+                <h1>Cadastre-se</h1>
+
+                <span>Enjoy magical features including the official sorting ceremony, portrait maker and
+                    more! <br><br></span>
+            </div>
         </div>
 
     </header>
@@ -25,25 +31,253 @@
 
         <div class="container-cadastro">
 
-
-
             <form>
-                <h2>Data de Nascimento</h2>
-                <div class="input-box">
-                    <input type="text" id="input_nascimento" placeholder="DD/MM/YYYY">
+                <div class="form-group">
+                    <label for="input_nome">Nome</label>
+                    <input type="text" id="input_nome" placeholder="Gabriel" oninput="validarNome()">
                 </div>
 
+                <div class="form-group">
+                    <label for="input_nascimento">Data de Nascimento</label>
+                    <input type="text" id="input_nascimento" placeholder="DD/MM/YYYY" maxlength="10" value=""
+                        oninput="validarNascimento()">
+                </div>
 
+                <div class="form-group">
 
+                    <label for="input_email">E-mail</label>
+                    <input type="email" id="input_email" required placeholder="gabriel@gmail.com"
+                        oninput="validarEmail()">
+                </div>
+
+                <div class="form-group">
+                    <div class="input-wrapper">
+
+                        <label for="input_senha">Senha</label>
+                        <input type="password" id="input_senha" required placeholder="Gp21207!"
+                            oninput="validarSenha()">
+
+                        <span id="toggleSenha" class="icone-visibilidade" onclick="alternarVisibilidadeSenha()">
+
+                            <!-- Começa com olho fechado (senha oculta) -->
+                            <svg id="iconeOlhoAberto" width="24" height="24" fill="white" style="display: none;"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M 10.25 2.97 h 1.5 V 0 h -1.5 V 2.97 Z ..." />
+                            </svg>
+                            <svg id="iconeOlhoFechado" width="24" height="24" fill="white"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M.47,7.18c.22,.25,5.41,6.1,..." />
+                            </svg>
+                        </span>
+
+                        <div id="boxSenha">
+                            <span id="span_maiuscula"> <br>Letras maiúsculas(A-Z) <br></span>
+                            <span id="span_minuscula">Letras minúsculas(a-z) <br></span>
+                            <span id="span_numero">Números (0-9)</span>
+                            <span id="span_especial">Caracteres especiais(!, @, etc.) <br></span>
+                            <span id="span_tamanho">Pelo menos 8 caracteres</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button onclick="validarCadastro(event)" type="submit">Registrar-se</button>
 
             </form>
         </div>
     </main>
 
     <footer>
-        <!-- <p>© 2025 - Todos os feitiços reservados por Gabriel Gomes Pimentel</p> -->
+        <p>© 2025 - Todos os feitiços reservados por Gabriel Gomes Pimentel</p>
     </footer>
 
 </body>
 
 </html>
+
+<script>
+
+    function validarNome() {
+
+        var nome = input_nome.value;
+
+
+        if (input_nome.value.length > 0) {
+            input_nome.style.border = "1px solid #fff";
+        } else {
+            input_nome.style.border = "1px solid red";
+        }
+    }
+
+    function validarNascimento() {
+
+        var nascimento = input_nascimento.value.replace(/\//g, '');
+        var formatandoInput = '';
+
+        for (var i = 0; i < nascimento.length; i++) {
+            formatandoInput += nascimento[i];
+
+            if (i == 2 || i == 5) {
+                formatandoInput += "/";
+            }
+        }
+
+        input_nascimento.value = formatandoInput;
+
+        if (nascimento.length > 0) {
+            if (nascimento.length == 10) {
+                input_nascimento.style.border = '1px solid #fff';
+            } else {
+                input_nascimento.style.border = '1px solid red';
+            }
+        } else {
+            input_nascimento.style.border = '1px solid black';
+        }
+    }
+
+    function validarEmail() {
+
+        var email = input_email.value;
+
+
+        if (email.length > 0) {
+            if (email.includes('@') && email.endsWith('.com')) {
+                input_email.style.border = '1px solid #fff';
+            } else {
+                input_email.style.border = '1px solid red';
+            }
+        } else {
+            input_email.style.border = '1px solid #604da4';
+        }
+
+    }
+
+    function validarSenha() {
+
+        var senha = input_senha.value;
+        input_senha.value = senha.replaceAll("'", '').replaceAll('=', '').replaceAll(';', '').replaceAll('"', '').replaceAll('#', '');
+
+        if (senha.length > 0) {
+            boxSenha.style.display = 'block';
+        } else {
+            boxSenha.style.display = 'none';
+        }
+
+        var senhaMaiscula = senha.toUpperCase();
+        var senhaMinuscula = senha.toLowerCase();
+        var senhaExclamacao = senha.includes('!');
+        var senhaArroba = senha.includes('@');
+        var senhaSifrao = senha.includes('$');
+        var senhaPorcetagem = senha.includes('%');
+        var senhaEcomercial = senha.includes('&');
+        var senhaAsteristico = senha.includes('*');
+        var senhaUnderline = senha.includes('_');
+        var senhaNumero = false;
+        var letraMaiuscula = false;
+        var letraMinusculo = false;
+
+        if (senha != senhaMaiscula) {
+            letraMinusculo = true;
+        } else {
+            letraMinusculo = false;
+        }
+
+        if (senha != senhaMinuscula) {
+            letraMaiuscula = true;
+        } else {
+            letraMaiuscula = false;
+        }
+
+        if (senha.includes(0)) {
+            senhaNumero = true;
+        } else if (senha.includes(1)) {
+            senhaNumero = true;
+        } else if (senha.includes(2)) {
+            senhaNumero = true;
+        } else if (senha.includes(3)) {
+            senhaNumero = true;
+        } else if (senha.includes(4)) {
+            senhaNumero = true;
+        } else if (senha.includes(5)) {
+            senhaNumero = true;
+        } else if (senha.includes(6)) {
+            senhaNumero = true;
+        } else if (senha.includes(7)) {
+            senhaNumero = true;
+        } else if (senha.includes(8)) {
+            senhaNumero = true;
+        } else if (senha.includes(9)) {
+            senhaNumero = true;
+        } else {
+            senhaNumero = false;
+        }
+
+        if (letraMaiuscula) {
+            span_maiuscula.style.color = '#fff';
+        } else {
+            span_maiuscula.style.color = 'red';
+        }
+
+        if (letraMinusculo) {
+            span_minuscula.style.color = '#fff';
+        } else {
+            span_minuscula.style.color = 'red';
+        }
+
+        if (senhaNumero) {
+            span_numero.style.color = '#fff';
+        } else {
+            span_numero.style.color = 'red';
+        }
+
+        if (senhaArroba || senhaExclamacao || senhaSifrao || senhaPorcetagem || senhaEcomercial || senhaAsteristico || senhaUnderline) {
+            span_especial.style.color = '#fff';
+        } else {
+            span_especial.style.color = 'red';
+        }
+        if (senha.length >= 8) {
+            span_tamanho.style.color = '#fff';
+        } else {
+            span_tamanho.style.color = 'red';
+        }
+
+        if (senha.length > 0) {
+            if (senhaNumero && letraMaiuscula && letraMinusculo && (senhaArroba || senhaExclamacao || senhaSifrao || senhaPorcetagem || senhaEcomercial || senhaAsteristico || senhaUnderline)) {
+                input_senha.style.border = '1px solid #fff';
+            } else {
+                input_senha.style.border = '1px solid red';
+            }
+        } else {
+            input_senha.style.border = '1px solid black';
+        }
+
+    }
+
+    function validarCadastro(event) {
+        event.preventDefault();
+
+        if (input_senha.style.border == '1px solid #fff' && input_email.style.border == '1px solid #fff' && input_nome.style.border == '1px solid #fff') {
+
+            window.location.href = 'login.html';
+        }
+    }
+
+    function alternarVisibilidadeSenha() {
+
+        const inputSenha = document.getElementById('input_senha');
+        const iconeOlhoAberto = document.getElementById('iconeOlhoAberto');
+        const iconeOlhoFechado = document.getElementById('iconeOlhoFechado');
+
+        if (inputSenha.type == 'password') {
+            inputSenha.type = 'text';
+            iconeOlhoAberto.style.display = 'inline';
+            iconeOlhoFechado.style.display = 'none';
+        } else {
+            inputSenha.type = 'password'
+            iconeOlhoAberto.style.display = 'none';
+            iconeOlhoFechado.style.display = 'inline';
+        }
+    }
+
+</script>
