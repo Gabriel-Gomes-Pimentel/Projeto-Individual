@@ -12,7 +12,7 @@ body {
     padding: 0;
     font-family: 'Harry Potter', sans-serif;
     width: 100%;
-    height: auto;
+    min-height: 100vh;
 
     background-image: url('./imgs/background_space.jpg');
     background-size: cover;
@@ -43,9 +43,9 @@ body {
 }
 
 .logo-cadastro img {
-    width: 120px;
+    width: 80px;
     margin-bottom: 10px;
-    /* height: 100px; */
+    height: 500px;
 }
 
 .header-cadastro {
@@ -59,7 +59,8 @@ body {
     font-family: 'Harry Beast';
     color: #fff;
     font-size: 70px;
-    margin-bottom: 10px;;
+    margin-bottom: 10px;
+    ;
 }
 
 .header-cadastro span {
@@ -72,16 +73,20 @@ body {
 
 main {
     flex: 1;
+    display: flex;
     justify-content: center;
     align-items: center;
+    padding: 60px 20px;
 }
 
 .container-cadastro {
     background-color: rgba(0, 0, 0, 0.3);
-    width: 80%;
-    height: 80%;
-    padding: 50px 50px;
+    width: 400px;
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 40px 30px;
     border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 form {
@@ -93,7 +98,7 @@ form {
 
 .form-group {
     width: 100%;
-    height: 80%;
+    gap: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -114,24 +119,37 @@ input {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.2);
     color: #fff;
+    width: 100%;
 }
 
 input ::placeholder {
     color: #dcdcdc;
 }
 
-.input-wrapper input {
+
+.input-wrapper {
     position: relative;
+}
+
+.input-wrapper input {
     width: 100%;
     padding-right: 40px;
+    box-sizing: border-box;
+
 }
+
 
 .icone-visibilidade {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #boxSenha {
@@ -148,7 +166,6 @@ button[type="submit"] {
     background-color: #ffd700;
     color: black;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 button[type="submit"]:hover {
