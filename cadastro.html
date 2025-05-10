@@ -33,12 +33,12 @@
             <form>
                 <div class="form-group">
                     <label for="input_nome">Nome</label>
-                    <input type="text" id="input_nome" placeholder="Gabriel" oninput="validarNome()">
+                    <input type="text" id="input_nome" required placeholder="Gabriel" oninput="validarNome()">
                 </div>
 
                 <div class="form-group">
                     <label for="input_nascimento">Data de Nascimento</label>
-                    <input type="text" id="input_nascimento" placeholder="DD/MM/YYYY" maxlength="10" value=""
+                    <input type="text" id="input_nascimento" required placeholder="DD/MM/YYYY" maxlength="10" value=""
                         oninput="validarNascimento()">
                 </div>
 
@@ -152,7 +152,7 @@
                 input_email.style.border = '1px solid red';
             }
         } else {
-            input_email.style.border = '1px solid #604da4';
+            input_email.style.border = '1px solid red';
         }
 
     }
@@ -177,6 +177,7 @@
         var senhaEcomercial = senha.includes('&');
         var senhaAsteristico = senha.includes('*');
         var senhaUnderline = senha.includes('_');
+        var senhaPonto = senha.includes('.');
         var senhaNumero = false;
         var letraMaiuscula = false;
         var letraMinusculo = false;
@@ -235,7 +236,7 @@
             span_numero.style.color = 'red';
         }
 
-        if (senhaArroba || senhaExclamacao || senhaSifrao || senhaPorcetagem || senhaEcomercial || senhaAsteristico || senhaUnderline) {
+        if (senhaArroba || senhaExclamacao || senhaSifrao || senhaPorcetagem || senhaEcomercial || senhaAsteristico || senhaUnderline || senhaPonto) {
             span_especial.style.color = '#fff';
         } else {
             span_especial.style.color = 'red';
@@ -247,7 +248,7 @@
         }
 
         if (senha.length > 0) {
-            if (senhaNumero && letraMaiuscula && letraMinusculo && (senhaArroba || senhaExclamacao || senhaSifrao || senhaPorcetagem || senhaEcomercial || senhaAsteristico || senhaUnderline)) {
+            if (senhaNumero && letraMaiuscula && letraMinusculo && (senhaArroba || senhaExclamacao || senhaSifrao || senhaPorcetagem || senhaEcomercial || senhaAsteristico || senhaUnderline || senhaPonto)) {
                 input_senha.style.border = '1px solid #fff';
             } else {
                 input_senha.style.border = '1px solid red';
