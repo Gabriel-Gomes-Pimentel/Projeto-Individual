@@ -86,10 +86,6 @@ input {
     color: #fff;
 }
 
-input::placeholder {
-    color: #dcdcdc;
-}
-
 .input-wrapper {
     position: relative;
 }
@@ -111,13 +107,6 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-#boxSenha {
-    display: none;
-    color: #fff;
-    margin-top: 10px;
-    line-height: 1.4;
 }
 
 button[type="submit"] {
