@@ -42,7 +42,7 @@ function validarEmail() {
 
 
     if (email.length > 0) {
-        if (email.includes('@') && email.endsWith('.com')) {
+        if (email.includes('@' && '.')) {
             input_email.style.border = '1px solid #fff';
         } else {
             input_email.style.border = '1px solid red';
@@ -197,3 +197,10 @@ function validarLogin(event) {
         inpput_email.style.border = '1px solid red';
     }
 }
+
+const luz = document.querySelector('.luz');
+
+window.addEventListener('mousemove', (e) => {
+    luz.style.setProperty('--x', `${e.clientX}px`);
+    luz.style.setProperty('--y', `${e.clientY}px`);
+})
