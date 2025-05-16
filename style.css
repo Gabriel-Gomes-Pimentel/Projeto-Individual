@@ -44,7 +44,7 @@ main {
 .cloud {
     position: absolute;
     left: -200px;
-    opacity: 0.4;
+    opacity: 0.6;
     animation-name: moveClouds;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -80,7 +80,7 @@ main {
 }
 
 #welcome-text {
-    z-index: 99;
+    z-index: 10;
     color: #ffd700;
     font-size: 65px;
     cursor: pointer;
